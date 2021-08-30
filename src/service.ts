@@ -12,3 +12,18 @@ export async function getScreams(): Promise<string[]> {
                 )
         )
 }
+
+export async function postScream(message: string): Promise<boolean> {
+
+    return fetch(url + '/post', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ data: { post: message } })
+    })
+        .then(
+            res => {return res.ok}
+        )
+}

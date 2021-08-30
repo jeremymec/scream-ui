@@ -1,14 +1,23 @@
-import { getScreams } from './service';
-import React, { Component } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
-class App extends Component {
+import MessageList from './messageList'
+import MessageSender from './messageSender';
 
-    render() {
-        return(
-            <p>Hello World!</p>
-        );
-    }
+function App() {
 
+    const endOfPageRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        endOfPageRef.current!.scrollIntoView({ behavior: 'smooth' })
+    }, [])
+
+    return(
+        <div className="root">
+            <MessageList></MessageList>
+            <MessageSender></MessageSender>
+            <div ref={endOfPageRef}></div>
+        </div>
+    );
 }
 
 export default App;

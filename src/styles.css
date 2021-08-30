@@ -1,10 +1,79 @@
-body { 
-    margin: 0; 
-    padding: 0
-  }
-#canvas { 
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden
+.root {
+  justify-content: center;
+  text-align: center;
+}
+
+.messageList {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow: auto;
+  min-height: 70vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-bottom: 10vh;
+}
+
+.messageContainer {
+  word-wrap: break-word;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.5em;
+  line-height: 0.7em;
+  justify-content: center;
+  text-align: center;
+}
+
+.messageContent {
+  display: inline-block;
+  width: fit-content;
+  background-color: #FAFAFA;
+}
+
+.message {
+  display: inline-flex;
+}
+
+.messageFooter {
+  display: inline-flex;
+  font-size: 0.5em;
+}
+
+#\30.messageContainer {
+  justify-content: center;
+  font-size: 4em;
+}
+
+#\31.messageContainer {
+  justify-content: center;
+  font-size: 3em;
+}
+
+.messageSenderContainer {
+  justify-content: center;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.messageInput {
+  width: 50vh;
+  height: 20vh;
+  max-width: 80vh;
+  font-size: 4vw;
+  text-align: center;
+  resize: none;
+  box-shadow: none;
+  outline: none;
+  border: transparent;
+  padding-top: 3vh;
+  overflow: hidden;
+}
+
+.messageInput::placeholder {
+  font-size: 4vh;
+}
+
+.messageButton {
+  text-align: center;
+  border: none;
+  font-size: 5vh;
 }
