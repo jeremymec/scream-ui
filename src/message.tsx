@@ -29,7 +29,7 @@ function Message(props: MessageProps) {
     return (
       <div className={'messageContainer'} id={String(props.id)}>
         <div className={'messageContent'}>
-          <span className={'message'} style={style}>{props.message.text}</span><br/><span className={'messageFooter'}>- Wellington, NZ</span>
+          <span className={'message'} style={style}>{props.message.text}</span><br/><span className={'messageFooter'}>- {props.message.location}</span>
         </div>
       </div>
     );

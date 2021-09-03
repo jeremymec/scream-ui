@@ -1,8 +1,8 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 
-import MessageModel from './models/message'
+import MessageModel, { Location } from './models/message'
 import MessageList from './messageList'
-import MessageSender, { Location } from './messageSender';
+import MessageSender from './messageSender';
 import { getMessages } from './service';
 import { getCity, locationList } from './locationService';
 

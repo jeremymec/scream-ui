@@ -1,16 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 import { postMessage } from './service'
-import MessageModel from './models/message'
+import MessageModel, { Location } from './models/message'
 
 interface MessageSenderProps {
   onMessageSend: (message: MessageModel) => void
   locations: string[]
   location: Location
-}
-
-export interface Location {
-  city: string
 }
 
 function MessageSender(props: MessageSenderProps) {
@@ -19,7 +15,7 @@ function MessageSender(props: MessageSenderProps) {
 
     const [messageText, setMessageText]= useState("");
     const [fontSize, setFontSize] = useState(maximumFontSize)
-    const [location, setLocation] = useState<Location>()
+    const [location, setLocation] = useState<Location>({city: "Unknown"})
 
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -30,8 +26,8 @@ function MessageSender(props: MessageSenderProps) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setMessageText("");
-        postMessage({text: messageText});
-        props.onMessageSend({text: messageText});
+        postMessage({text: messageText, location});
+        props.onMessageSend({text: messageText, location});
     }
 
     const handleInput = (e: React.FormEvent<HTMLTextAreaElement>) => {
