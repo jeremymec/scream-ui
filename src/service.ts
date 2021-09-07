@@ -1,6 +1,7 @@
 import MessageModel from "./models/message";
 
-const url = process.env.API_URL!;
+// const url = process.env.API_URL!;
+const url = 'http://3.25.163.72:8000';
 
 export async function getMessages(): Promise<MessageModel[]> {
   return fetch(url + "/post").then((res) =>
