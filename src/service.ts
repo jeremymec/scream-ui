@@ -1,7 +1,7 @@
 import MessageModel from "./models/message";
 
 // const url = process.env.API_URL!;
-const url = 'http://localhost:8000';
+const url = 'api.screamtothevoid.com:8000';
 
 interface MessageResponse {
   message: string,
