@@ -1,20 +1,21 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-import MessageModel, { Location } from './models/message'
+import MessageModel from './models/message'
 import MessageList from './messageList'
 import MessageSender from './messageSender';
 import { getMessages } from './service';
-import { getCity, locationList } from './locationService';
+import { getCountry } from './locationService';
 
 function App() {
 
     const [messages, setMessages] = React.useState<MessageModel[]>([])
-    const [location, setLocation] = React.useState<Location>({city: "Unknown"})
+    const [location, setLocation] = React.useState('Unknown')
 
     const endOfPageRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         getMessages().then(results => {
+            console.log(results)
             setMessages(results)
             const timer = setTimeout(() => {
                 window.scrollTo(0, 10000);
@@ -24,17 +25,17 @@ function App() {
     }, []);
 
     useEffect(() => {
-        getCity().then(res => setLocation({city: res}))
+        getCountry().then(res => setLocation(res))
     }, [])
 
     const messageSendCallback = (message: MessageModel) => {
-        setMessages([message, ...messages.slice(0, -1)])
+        setMessages([message, ...messages.splice(0,9)])
     }
 
     return(
         <div className="root">
             <MessageList messages={messages}></MessageList>
-            <MessageSender onMessageSend={messageSendCallback} locations={locationList} location={location}></MessageSender>
+            <MessageSender onMessageSend={messageSendCallback} location={location}></MessageSender>
             <div ref={endOfPageRef}></div>
         </div>
     );

@@ -41,6 +41,8 @@
   width: fit-content;
   font-size: 1.5em;
   padding-top: 0.5em;
+  opacity: 60%;
+  white-space: pre;
 }
 
 #\30.messageContainer {
@@ -90,12 +92,13 @@
   justify-content: center;
   align-self: flex-end;
   text-align: center;
+  min-height: 25em;
 }
 
 .messageInput {
-  width: 20em;
-  height: 5em;
-  max-width: 30em;
+  width: 100%;
+  min-height: 5em;
+  max-width: 40em;
   font-size: 4em;
   text-align: center;
   resize: none;
@@ -115,18 +118,4 @@
   border: none;
   font-size: 5vh;
   background-color: red;
-}
-
-.locationFromText {
-  font-size: 2em;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.locationSelectBox {
-  border: none;
-  padding: none;
-  font-size: 2em;
-  background-color: #eef6ff;
 }

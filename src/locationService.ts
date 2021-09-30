@@ -1,32 +1,15 @@
 
-export const locationList = ["Northland",
-"Auckland",
-"Waikato",
-"Bay of Plenty",
-"Gisborne",
-"Hawke's Bay",
-"Taranaki",
-"Manawatū",
-"Wellington",
-"Tasman",
-"Nelson",
-"Marlborough",
-"West Coast",
-"Canterbury",
-"Otago",
-"Southland"]
-
-export async function getCity(): Promise<string> {
+export async function getCountry(): Promise<string> {
     return fetch('http://ipwhois.app/json/').then((res) =>
         res.json().then(
             (data) => {
-                let city = "Unknown";
+                let country = "Unknown";
                 try {
-                    city = data["city"];
+                    country = data["country"];
                 } catch {
                     
                 }
-                return city;
+                return country;
             }
         ));
 }
