@@ -1,6 +1,6 @@
 
 export async function getCountry(): Promise<string> {
-    return fetch('http://ipwhois.app/json/').then((res) =>
+    return fetch('https://ipwhois.app/json/').then((res) =>
         res.json().then(
             (data) => {
                 let country = "Unknown";
